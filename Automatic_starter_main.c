@@ -1,6 +1,7 @@
 //之前的程序放到 viewerTop.json文件夹，导致提交包后无法清理本程序从而使任务卡住
 //现在修复该问题，现在需将本软件放入work文件夹内 
-//------------------------------------------------------- 
+//-------------------------------------------------------
+//修改by 洛丝萝琳
 #include <stdio.h>
 #include <windows.h>
 #include <io.h>
@@ -68,9 +69,10 @@ int main()
 	printf ("请输入刷新间隔（单位：秒），按回车启动程序：");
 	int time=60;
 	scanf ("%d",&time);
-	printf ("\n一开始显示1次“错误: 没有找到进程 \"FAHViewer.exe\"。”是正常情况\n");
+	//printf ("\n一开始显示1次“错误: 没有找到进程 \"FAHViewer.exe\"。”是正常情况\n");
 	while (1)
 	{
+		int OffsetFlag=0;
 		int i=351;
 		char filename[50];
 		int judge=-1;
@@ -81,11 +83,19 @@ int main()
 		}
 		if (i!=num)
 		{
-			num=i;
-			system ("taskkill /F /IM FAHViewer.exe");
+			if (num!=-1)
+			{
+				num=i;
+				system ("taskkill /F /IM FAHViewer.exe");
+			}
+			else
+			{
+			 	num=i;
+			} 
 			Sleep(50);//50ms
+			OffsetFlag=1;
 			_beginthread(fun1,0,NULL);
 		}
-		Sleep (time*1000);
+		Sleep (time*1000-OffsetFlag*50);
 	}
 }
