@@ -34,7 +34,7 @@ int main()
 	printf ("本程序运行后将定期扫描是否有最新的viewerFrame文件并载入\n");
 	printf ("请将本程序放入work文件夹下\n"); 
 	printf ("作者：RaiseNorth  如有bug请见谅，已开源github.com/RaiseNorth/FAHViewer_starter\n"); 
-	printf ("感谢 洛丝萝琳 提供了建议和bug测试\n\n"); 
+	printf ("感谢 洛丝萝琳 提供了建议 bug测试 部分源码改进 改进开源\n\n"); 
 	int id,Foldernum=0;
 	int Folders[100];
 	char pathstr[40];
